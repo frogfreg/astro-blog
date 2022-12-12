@@ -18,7 +18,8 @@
     "astro-compress": "^1.0.5",
     "astro-icon": "^0.7.3",
     "astro-robots-txt": "^0.3.8",
-    "astro-webmanifest": "0.4.0"
+    "astro-webmanifest": "0.4.0",
+    "eslint": "^8.29.0"
   },
   "dependencies": {
     "astro-icon": "^0.7.3"

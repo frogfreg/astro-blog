@@ -4,4 +4,4 @@
 export const SITE_TITLE = "Frogfreg";
 export const SITE_SUB_TITLE = "Hello there!";
 export const SITE_DESCRIPTION = "Welcome to my personal blog about whatever";
-export const SITE_URL = "https://sunny-arithmetic-1e866e.netlify.app";
+export const SITE_URL = "https://frogfreg.com";
