@@ -4,67 +4,61 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_SUB_TITLE } from "../config";
 import PostTile from "../components/PostTile.astro";
-import { findTags, mapPosts } from "../utils/post.utils";
+import { mapPosts } from "../utils/post.utils";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = await Astro.glob("./blog/*.{md,mdx}");
 const mappedPosts = mapPosts(posts).slice(0, 3);
 
-const currentTag = "general";
-const tags = findTags(mappedPosts);
+// const currentTag = "general";
+// const tags = findTags(mappedPosts);
 ---
 
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body class="dark:bg-mydark text-black dark:text-white">
-        <Header title={SITE_TITLE} />
-        <main>
-            <h2 class="font-bold text-xl mb-6 dark:text-white">
-                {SITE_SUB_TITLE}
-            </h2>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="dark:bg-mydark text-black dark:text-white">
+    <Header title={SITE_TITLE} />
+    <main>
+      <h2 class="font-bold text-xl mb-6 dark:text-white">
+        {SITE_SUB_TITLE}
+      </h2>
 
-            <div class="mb-8">
-                <p>
-                    Hello, my name is Guillermo 🙋‍♂️ (also frogfreg or guiferrod). I am passionate about
-                    programming and technology, and I am always eager to learn
-                    and improve my skills. In this blog, I will share my
-                    thoughts and experiences about random stuff I am into. I
-                    hope you will find my posts interesting and informative 🤓,
-                    and I welcome any feedback or suggestions you may have 🤝. I
-                    will soon improve the overall look of the blog and add an
-                    about page.
-                </p>
-            </div>
+      <div class="mb-8">
+        <p>
+          Hello! My name is Guillermo and I'm a programmer and technology
+          enthusiast 💻. I love learning about interesting and weird things, and
+          I hope to share some of my insights and experiences on this blog.
+          Thank you for stopping by and I hope you find my posts interesting and
+          informative 🤓. Feel free to leave any feedback or suggestions. Thanks
+          for visiting!
+        </p>
+      </div>
 
-            <div>
-                <h3 class="font-bold text-red-500 dark:text-enf text-lg">
-                    Posts
-                </h3>
+      <div>
+        <h3 class="font-bold text-red-500 dark:text-enf text-lg">Posts</h3>
 
-                <div class="grid grid-cols-1 gap-4 mt-3 mb-3">
-                    {
-                        mappedPosts.map((p) => (
-                            <PostTile
-                                url={p.url}
-                                title={p.frontmatter.title}
-                                description={p.frontmatter.description}
-                                date={p.frontmatter.pubDate}
-                                is:raw
-                            />
-                        ))
-                    }
-                </div>
+        <div class="grid grid-cols-1 gap-4 mt-3 mb-3">
+          {
+            mappedPosts.map((p) => (
+              <PostTile
+                url={p.url}
+                title={p.frontmatter.title}
+                description={p.frontmatter.description}
+                date={p.frontmatter.pubDate}
+                is:raw
+              />
+            ))
+          }
+        </div>
 
-                <a
-                    href="/blog"
-                    class="text-red-500 hover:text-red-700 dark:text-enf"
-                    >See all posts</a
-                >
-            </div>
-        </main>
-        <Footer />
-    </body>
+        <a href="/blog" class="text-red-500 hover:text-red-700 dark:text-enf"
+          >See all posts</a
+        >
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>
